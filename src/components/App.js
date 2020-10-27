@@ -9,7 +9,7 @@ import grain from '../textures/grit.jpg'
 const App = () => {
   return (
     <div className={appStyles.wrapper}>
-      <div className={appStyles.gritbg}> <img className={appStyles.gritimg} src={grain} /></div>
+      <div className={appStyles.gritbg}> <img className={appStyles.gritimg} src={grain} alt="background-texture" /></div>
       <Cropper />
     </div>
   );

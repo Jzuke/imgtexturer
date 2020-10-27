@@ -19,12 +19,6 @@ const ORIENTATION_TO_ANGLE = {
   '8': -90,
 }
 
-const aspectRatioOptions = [
-  { value: 4 / 3, label: '4:3' },
-  { value: 16 / 9, label: '16:9' },
-  { value: 1 / 1, label: '1:1' },
-];
-
 const ImageCropper = ({ classes }) => {
   const [imageSrc, setImageSrc] = React.useState(null)
   const [crop, setCrop] = useState({ x: 0, y: 0 })
@@ -161,7 +155,7 @@ const ImageCropper = ({ classes }) => {
                 variant="contained"
                 color="primary"
                 classes={{ root: classes.button }}
-                onClick = {onFileChange}
+                onClick={onFileChange}
               >
                 Upload Photo
             </Button>

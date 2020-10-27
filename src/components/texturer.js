@@ -20,13 +20,6 @@ import Slide from '@material-ui/core/Slide'
 import paper from '../textures/paper.jpg'
 import grain from '../textures/grain.png'
 
-
-const textureOptions = [
-  { value: paper, label: 'Paper' },
-  { value: grit, label: 'Grit' },
-  { value: grain, label: 'Grain' },
-];
-
 function Transition(props) {
   return <Slide direction="up" {...props} />
 }
@@ -112,48 +105,48 @@ class Texturer extends React.Component {
               Texturized photo
             </Typography>
           </Toolbar>
-        </AppBar> 
+        </AppBar>
         <div className={classes.dialogContainer}>
           <div ref={this.myRef} className={classes.imgContainer}>
             <div className={classes.backgroundOverlay} style={{ backgroundColor: `${this.state.color}` }}></div>
             {selectedOption === 'none' ? <div></div> : <img src={selectedOption} alt="Texture" className={classes.paper} />}
             <img src={this.props.img} alt="Cropped" className={classes.img} style={{ opacity: this.state.alpha }} />
           </div>
-        <div className={classes.controlsContainer}>
-          <InputLabel id="texture-label">Select a texture</InputLabel>
-          <Select
-            labelId="texture-select-label"
-            id="texture-select"
-            value={selectedOption}
-            onChange={this.handleTextureChange}
-          >
-            <MenuItem value="none">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={paper}>Paper</MenuItem>
-            <MenuItem value={grit}>Grit</MenuItem>
-            <MenuItem value={grain}>Grain</MenuItem>
-          </Select>
-          <ChromePicker
-            color={this.state.color}
-            onChangeComplete={this.handleColorChange} />
-          <Slider
-            value={alphaLayer}
-            min={0}
-            max={1}
-            step={0.05}
-            aria-labelledby="Opacity"
-            onChange={() => this.handleAlphaChange}
-          />
-          <Button
-            className={classes.saveBtn}
-            onClick={this.handleSaveImage}
-            variant="contained"
-            color="primary"
-          >
-            Download
+          <div className={classes.controlsContainer}>
+            <InputLabel id="texture-label">Select a texture</InputLabel>
+            <Select
+              labelId="texture-select-label"
+              id="texture-select"
+              value={selectedOption}
+              onChange={this.handleTextureChange}
+            >
+              <MenuItem value="none">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={paper}>Paper</MenuItem>
+              <MenuItem value={grit}>Grit</MenuItem>
+              <MenuItem value={grain}>Grain</MenuItem>
+            </Select>
+            <ChromePicker
+              color={this.state.color}
+              onChangeComplete={this.handleColorChange} />
+            <Slider
+              value={alphaLayer}
+              min={0}
+              max={1}
+              step={0.05}
+              aria-labelledby="Opacity"
+              onChange={() => this.handleAlphaChange}
+            />
+            <Button
+              className={classes.saveBtn}
+              onClick={this.handleSaveImage}
+              variant="contained"
+              color="primary"
+            >
+              Download
             </Button>
-        </div>
+          </div>
         </div>
       </Dialog>
     )
